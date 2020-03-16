@@ -1,0 +1,1 @@
+{"name":"corona","version":"1.0.0","description":"","main":"index.js","scripts":{"start":"next"},"author":"","license":"ISC","dependencies":{"leaflet":"^1.6.0","next":"^9.3.0","react":"^16.13.0","react-dom":"^16.13.0","react-leaflet":"^2.6.3"},"readme":"ERROR: No README data found!","_id":"corona@1.0.0"}
