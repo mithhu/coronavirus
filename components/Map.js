@@ -26,7 +26,6 @@ const SimpleExample = () => {
         "https://covid19.mathdro.id/api/"
       ).then(res => res.json());
       setTotalData(response);
-      console.log(response);
     }
     fetchInfo();
   }, []);
@@ -37,7 +36,6 @@ const SimpleExample = () => {
     for (let i = dailyData.length - 7; count < 8; i++, count++) {
       newData.push(dailyData[i]);
     }
-    console.log(newData);
   };
 
   dataCollector();
@@ -49,12 +47,18 @@ const SimpleExample = () => {
           {totalData.confirmed ? totalData.confirmed.value : undefined}
         </p>
         <p>
-          Total Reovered:{" "}
+          Total Recovered:{" "}
           {totalData.recovered ? totalData.recovered.value : undefined}
         </p>
         <p>
-          Total Detah: {totalData.deaths ? totalData.deaths.value : undefined}
+          Total Death: {totalData.deaths ? totalData.deaths.value : undefined}
         </p>
+        <h2>
+          Confirmed Today:{" "}
+          {dailyData.length > 0
+            ? dailyData[dailyData.length - 1].deltaConfirmed
+            : undefined}
+        </h2>
       </div>
       <AreaChart
         width={730}
