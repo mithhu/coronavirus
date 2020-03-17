@@ -1535,26 +1535,16 @@ function index() {
       lineNumber: 14
     },
     __self: this
-  }, __jsx("link", {
-    rel: "stylesheet",
-    href: "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css",
-    integrity: "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==",
-    crossOrigin: "",
+  }, __jsx("title", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     },
     __self: this
-  }), __jsx("title", {
+  }, "Corona Virus")), __jsx(DynamicComponentWithNoSSR, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
-  }, "Mithhu")), __jsx(DynamicComponentWithNoSSR, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 17
     },
     __self: this
   }));
@@ -1562,7 +1552,7 @@ function index() {
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=G%3A%5Ccorona%5Cpages%5Cindex.js ***!
   \*************************************************************************************************/
@@ -1585,5 +1575,5 @@ module.exports = dll_82519ec661270f7f484f;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);
 //# sourceMappingURL=index.js.map

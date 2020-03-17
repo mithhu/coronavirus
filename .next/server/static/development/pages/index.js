@@ -121,7 +121,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -169,26 +169,16 @@ function index() {
       lineNumber: 14
     },
     __self: this
-  }, __jsx("link", {
-    rel: "stylesheet",
-    href: "https://unpkg.com/leaflet@1.6.0/dist/leaflet.css",
-    integrity: "sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==",
-    crossOrigin: "",
+  }, __jsx("title", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     },
     __self: this
-  }), __jsx("title", {
+  }, "Corona Virus")), __jsx(DynamicComponentWithNoSSR, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
-  }, "Mithhu")), __jsx(DynamicComponentWithNoSSR, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 23
+      lineNumber: 17
     },
     __self: this
   }));
@@ -196,7 +186,7 @@ function index() {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/
@@ -205,17 +195,6 @@ function index() {
 
 module.exports = __webpack_require__(/*! G:\corona\pages\index.js */"./pages/index.js");
 
-
-/***/ }),
-
-/***/ "leaflet":
-/*!**************************!*\
-  !*** external "leaflet" ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("leaflet");
 
 /***/ }),
 
@@ -252,14 +231,14 @@ module.exports = require("react");
 
 /***/ }),
 
-/***/ "react-leaflet":
-/*!********************************!*\
-  !*** external "react-leaflet" ***!
-  \********************************/
+/***/ "recharts":
+/*!***************************!*\
+  !*** external "recharts" ***!
+  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = require("react-leaflet");
+module.exports = require("recharts");
 
 /***/ })
 
