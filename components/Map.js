@@ -6,7 +6,9 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Area
+  Area,
+  Legend,
+  Line
 } from "recharts";
 
 const SimpleExample = () => {
@@ -42,23 +44,31 @@ const SimpleExample = () => {
   return (
     <div>
       <div>
-        <p>
-          Total Confirmed:{" "}
-          {totalData.confirmed ? totalData.confirmed.value : undefined}
-        </p>
-        <p>
-          Total Recovered:{" "}
-          {totalData.recovered ? totalData.recovered.value : undefined}
-        </p>
-        <p>
-          Total Death: {totalData.deaths ? totalData.deaths.value : undefined}
-        </p>
-        <h2>
-          Confirmed Today:{" "}
-          {dailyData.length > 0
-            ? dailyData[dailyData.length - 1].deltaConfirmed
-            : undefined}
-        </h2>
+        <article>
+          <p>
+            Total Confirmed:{" "}
+            {totalData.confirmed ? totalData.confirmed.value : undefined}
+          </p>
+        </article>
+        <article>
+          <p>
+            Total Recovered:{" "}
+            {totalData.recovered ? totalData.recovered.value : undefined}
+          </p>
+        </article>
+        <article>
+          <p>
+            Total Death: {totalData.deaths ? totalData.deaths.value : undefined}
+          </p>
+        </article>
+        <article>
+          <p>
+            Confirmed Today:{" "}
+            {dailyData.length > 0
+              ? dailyData[dailyData.length - 1].deltaConfirmed
+              : undefined}
+          </p>
+        </article>
       </div>
       <AreaChart
         width={730}
@@ -86,17 +96,30 @@ const SimpleExample = () => {
         />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
+        <Legend verticalAlign="top" height={36} />
+        <Line
+          name="Confirmed cases"
+          type="monotone"
+          dataKey="totalConfirmed"
+          stroke="#8884dFF00008"
+        />
+        <Line
+          name="Recovered"
+          type="monotone"
+          dataKey="totalRecovered"
+          stroke="#0CE30C"
+        />
         <Area
           type="monotone"
           dataKey="totalConfirmed"
-          stroke="#8884d8"
+          stroke="#FF0000"
           fillOpacity={1}
           fill="url(#colorUv)"
         />
         <Area
           type="monotone"
           dataKey="totalRecovered"
-          stroke="#82ca9d"
+          stroke="#0CE30C"
           fillOpacity={1}
           fill="url(#colorPv)"
         />
