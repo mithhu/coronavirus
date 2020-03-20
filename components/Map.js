@@ -31,7 +31,6 @@ const SimpleExample = () => {
   const dataCollector = () => {
     let count = 1;
     for (let i = dailyData.length - 7; count < 8; i++, count++) {
-      console.log(dailyData[i]);
       newData.push(dailyData[i]);
     }
   };
@@ -39,7 +38,11 @@ const SimpleExample = () => {
   dataCollector();
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Covid-19</h1>
+      <h1
+        style={{ textAlign: "center", marginTop: "5px", marginBottom: "5px" }}
+      >
+        Covid-19
+      </h1>
       <CardList
         dailyData={
           dailyData.length > 0 && dailyData[dailyData.length - 1].deltaConfirmed
