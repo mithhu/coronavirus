@@ -1,11 +1,12 @@
 @font-face {
-    font-family: 'RobotoMono';
-    src: url('./public/fonts/RobotoMono-Bold.ttf');
-    src: url('./public/fonts/RobotoMono-Light.ttf');
-    src: url('./public/fonts/RobotoMono-Medium.ttf');
-    src: url('./public/fonts/RobotoMono-Regular.ttf');
-  }
+  font-family: "RobotoMono";
+  src: url("./public/fonts/RobotoMono-Bold.ttf");
+  src: url("./public/fonts/RobotoMono-Light.ttf");
+  src: url("./public/fonts/RobotoMono-Medium.ttf");
+  src: url("./public/fonts/RobotoMono-Regular.ttf");
+}
 
-  * {
-    font-family: 'Roboto Mono', sans-serif;  
-  }
+* {
+  font-family: "Roboto Mono", sans-serif;
+  box-sizing: border-box;
+}
