@@ -4,7 +4,11 @@ import "./ChartCardList.scss";
 export const CountryData = props => {
   const [countryData, setCountryData] = useState({});
   const [globalData, setGlobalData] = useState([]);
-  const [selectCountry, setSelectCountry] = useState("");
+  const [selectCountry, setSelectCountry] = useState(
+    localStorage.getItem("selectCountry")
+      ? localStorage.getItem("selectCountry")
+      : ""
+  );
   const [population, setPopulation] = useState(0);
 
   useEffect(() => {
@@ -44,7 +48,10 @@ export const CountryData = props => {
         <select
           className="center-block"
           value={selectCountry}
-          onChange={e => setSelectCountry(e.target.value)}
+          onChange={e => {
+            localStorage.setItem("selectCountry", e.target.value);
+            setSelectCountry(e.target.value);
+          }}
           style={{
             backgroundColor: "#c3f4e7",
             width: "250px",
