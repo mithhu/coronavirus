@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "./CardList.scss";
 
 export const CardList = props => {
   const [totalData, setTotalData] = useState({});
-  const [bdData, setBdData] = useState({});
+
   useEffect(() => {
     async function fetchInfo() {
       const response = await fetch(
@@ -11,13 +12,6 @@ export const CardList = props => {
       setTotalData(response);
     }
     fetchInfo();
-    async function fetchBdData() {
-      const response = await fetch(
-        "https://covid19.mathdro.id/api/countries/BD"
-      ).then(res => res.json());
-      setBdData(response);
-    }
-    fetchBdData();
   }, []);
   return (
     <div className="container">

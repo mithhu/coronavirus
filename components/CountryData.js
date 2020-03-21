@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
+import "./CountryData.scss";
 
 export const CountryData = props => {
   const [countryData, setCountryData] = useState({});
   const [globalData, setGlobalData] = useState([]);
   const [selectCountry, setSelectCountry] = useState("BD");
+  const [population, setPopulation] = useState(0);
 
   useEffect(() => {
-    async function fetchCountryData() {
-      const response = await fetch(
-        `https://covid19.mathdro.id/api/countries/${selectCountry}`
-      ).then(res => res.json());
-      setCountryData(response);
-    }
-    fetchCountryData();
     async function fetchGlobalData() {
       const response = await fetch(
         "https://covid19.mathdro.id/api/countries"
@@ -20,6 +15,23 @@ export const CountryData = props => {
       setGlobalData(response);
     }
     fetchGlobalData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchPopulation() {
+      const response = await fetch(
+        `https://restcountries.eu/rest/v2/alpha/${selectCountry}`
+      ).then(res => res.json());
+      setPopulation(response.population);
+    }
+    fetchPopulation();
+    async function fetchCountryData() {
+      const response = await fetch(
+        `https://covid19.mathdro.id/api/countries/${selectCountry}`
+      ).then(res => res.json());
+      setCountryData(response);
+    }
+    fetchCountryData();
   }, [selectCountry]);
   return (
     <>
@@ -54,25 +66,53 @@ export const CountryData = props => {
       <div className="container">
         <article className="article">
           <p>Total Confirmed</p>
-          <p>
-            {countryData.confirmed
-              ? countryData.confirmed.value
-              : "No Data Found"}
-          </p>
+          {population && countryData.confirmed ? (
+            <>
+              <span>{countryData.confirmed.value}</span>
+              <span>
+                ({((countryData.confirmed.value / population) * 100).toFixed(7)}
+                %)
+              </span>
+            </>
+          ) : (
+            "No Data Found"
+          )}
         </article>
         <article className="article">
           <p>Total Recovered</p>
-          <p>
-            {countryData.recovered
-              ? countryData.recovered.value
-              : "No Data Found"}
-          </p>
+          {population && countryData.recovered ? (
+            <>
+              <span>{countryData.recovered.value}</span>
+              <span>
+                (
+                {(
+                  (countryData.recovered.value / countryData.confirmed.value) *
+                  100
+                ).toFixed(2)}
+                %)
+              </span>
+            </>
+          ) : (
+            "No Data Found"
+          )}
         </article>
         <article className="article">
           <p>Total Death</p>
-          <p>
-            {countryData.deaths ? countryData.deaths.value : "No Data Found"}
-          </p>
+          {population && countryData.deaths ? (
+            <>
+              <span>{countryData.deaths.value}</span>
+              <span>
+                (
+                {(
+                  (countryData.deaths.value / countryData.confirmed.value) *
+                  100
+                ).toFixed(2)}
+                %)
+              </span>
+            </>
+          ) : (
+            "No Data Found"
+          )}
         </article>
       </div>
     </>
