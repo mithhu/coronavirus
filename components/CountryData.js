@@ -4,13 +4,7 @@ import "./ChartCardList.scss";
 export const CountryData = props => {
   const [countryData, setCountryData] = useState({});
   const [globalData, setGlobalData] = useState([]);
-  const [selectCountry, setSelectCountry] = useState(
-    typeof window !== undefined
-      ? window.localStorage.getItem("selectCountry")
-        ? window.localStorage.getItem("selectCountry")
-        : ""
-      : ""
-  );
+  const [selectCountry, setSelectCountry] = useState("");
   const [population, setPopulation] = useState(0);
 
   useEffect(() => {
@@ -21,9 +15,16 @@ export const CountryData = props => {
       setGlobalData(response);
     }
     fetchGlobalData();
+    setSelectCountry(
+      localStorage.getItem("selectCountry")
+        ? localStorage.getItem("selectCountry")
+        : ""
+    );
   }, []);
 
   useEffect(() => {
+    localStorage.setItem("selectCountry", selectCountry);
+
     async function fetchPopulation() {
       const response = await fetch(
         `https://restcountries.eu/rest/v2/alpha/${selectCountry}`
@@ -51,9 +52,6 @@ export const CountryData = props => {
           className="center-block"
           value={selectCountry}
           onChange={e => {
-            typeof window !== undefined
-              ? window.localStorage.setItem("selectCountry", e.target.value)
-              : "";
             setSelectCountry(e.target.value);
           }}
           style={{
