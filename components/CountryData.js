@@ -4,7 +4,7 @@ import "./ChartCardList.scss";
 export const CountryData = props => {
   const [countryData, setCountryData] = useState({});
   const [globalData, setGlobalData] = useState([]);
-  const [selectCountry, setSelectCountry] = useState("BD");
+  const [selectCountry, setSelectCountry] = useState("");
   const [population, setPopulation] = useState(0);
 
   useEffect(() => {
@@ -31,7 +31,9 @@ export const CountryData = props => {
       ).then(res => res.json());
       setCountryData(response);
     }
-    fetchCountryData();
+    if (selectCountry) {
+      fetchCountryData();
+    }
   }, [selectCountry]);
   return (
     <>
@@ -52,6 +54,7 @@ export const CountryData = props => {
             borderRadius: "5px"
           }}
         >
+          <option value="">Select your country</option>
           {globalData.countries
             ? Object.keys(globalData.countries).map(country => {
                 return (
@@ -63,58 +66,64 @@ export const CountryData = props => {
             : undefined}
         </select>
       </div>
-      <div className="container">
-        <article className="article">
-          <p>Total Confirmed</p>
-          {population && countryData.confirmed ? (
-            <>
-              <span>{countryData.confirmed.value}</span>
-              <span>
-                ({((countryData.confirmed.value / population) * 100).toFixed(7)}
-                %)
-              </span>
-            </>
-          ) : (
-            "No Data Found"
-          )}
-        </article>
-        <article className="article">
-          <p>Total Recovered</p>
-          {population && countryData.recovered ? (
-            <>
-              <span>{countryData.recovered.value}</span>
-              <span>
-                (
-                {(
-                  (countryData.recovered.value / countryData.confirmed.value) *
-                  100
-                ).toFixed(2)}
-                %)
-              </span>
-            </>
-          ) : (
-            "No Data Found"
-          )}
-        </article>
-        <article className="article">
-          <p>Total Death</p>
-          {population && countryData.deaths ? (
-            <>
-              <span>{countryData.deaths.value}</span>
-              <span>
-                (
-                {(
-                  (countryData.deaths.value / countryData.confirmed.value) *
-                  100
-                ).toFixed(2)}
-                %)
-              </span>
-            </>
-          ) : (
-            "No Data Found"
-          )}
-        </article>
-      </div>
+      {selectCountry && (
+        <div className="container">
+          <article className="article">
+            <p>Total Confirmed</p>
+            {population && countryData.confirmed ? (
+              <>
+                <span>{countryData.confirmed.value}</span>
+                <span>
+                  (
+                  {((countryData.confirmed.value / population) * 100).toFixed(
+                    7
+                  )}
+                  %)
+                </span>
+              </>
+            ) : (
+              "No Data Found"
+            )}
+          </article>
+          <article className="article">
+            <p>Total Recovered</p>
+            {population && countryData.recovered ? (
+              <>
+                <span>{countryData.recovered.value}</span>
+                <span>
+                  (
+                  {(
+                    (countryData.recovered.value /
+                      countryData.confirmed.value) *
+                    100
+                  ).toFixed(2)}
+                  %)
+                </span>
+              </>
+            ) : (
+              "No Data Found"
+            )}
+          </article>
+          <article className="article">
+            <p>Total Death</p>
+            {population && countryData.deaths ? (
+              <>
+                <span>{countryData.deaths.value}</span>
+                <span>
+                  (
+                  {(
+                    (countryData.deaths.value / countryData.confirmed.value) *
+                    100
+                  ).toFixed(2)}
+                  %)
+                </span>
+              </>
+            ) : (
+              "No Data Found"
+            )}
+          </article>
+        </div>
+      )}
     </>
   );
 };

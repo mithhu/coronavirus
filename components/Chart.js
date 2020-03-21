@@ -14,7 +14,11 @@ import {
 
 export const Chart = props => {
   return (
-    <div className="chart">
+    <div
+      className="chart"
+      // style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
+      <h3>Last 7 days chart</h3>
       <AreaChart
         width={760}
         height={300}
