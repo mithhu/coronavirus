@@ -7,6 +7,12 @@ const withPlugins = require("next-compose-plugins");
 module.exports = withPlugins([withPWA, withSass, withCSS, withFonts], {
   pwa: {
     dest: "public"
+    // workboxOptions: {
+    //   // swSrc is required in InjectManifest mode.
+    //   swSrc: "service-worker.js",
+    //   // ...other Workbox options...
+    //   exclude: [/\.map$/, /_redirects/]
+    // }
   },
   webpack(config, options) {
     config.module.rules.push({
