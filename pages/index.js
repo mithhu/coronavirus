@@ -11,10 +11,6 @@ export default function index() {
   return (
     <div>
       <Head>
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap"
-          rel="stylesheet"
-        />
         <title>Corona Virus</title>
       </Head>
       <DynamicComponentWithNoSSR />

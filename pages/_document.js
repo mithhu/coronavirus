@@ -96,6 +96,10 @@ export default class extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap"
+            rel="stylesheet"
+          />
           <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/icons/favicon.ico" />
           <meta name="msapplication-TileColor" content="#ffffff" />
