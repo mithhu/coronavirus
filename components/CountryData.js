@@ -31,7 +31,6 @@ export const CountryData = props => {
       ).then(res => res.json());
       setPopulation(response.population);
     }
-    fetchPopulation();
     async function fetchCountryData() {
       const response = await fetch(
         `https://covid19.mathdro.id/api/countries/${selectCountry}`
@@ -40,6 +39,7 @@ export const CountryData = props => {
     }
     if (selectCountry) {
       fetchCountryData();
+      fetchPopulation();
     }
   }, [selectCountry]);
   return (
