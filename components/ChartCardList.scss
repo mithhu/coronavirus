@@ -4,9 +4,6 @@
   flex-wrap: wrap;
 }
 
-.center-block {
-  text-align-last: center;
-}
 .article {
   background-color: #c3f4e7;
   text-align: center;
@@ -24,4 +21,11 @@
     margin: 5px;
     width: 250px;
   }
+  p {
+    margin: 5px;
+  }
+}
+
+.center-block {
+  text-align-last: center;
 }

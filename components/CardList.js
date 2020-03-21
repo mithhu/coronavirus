@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./CardList.scss";
+import "./ChartCardList.scss";
 
 export const CardList = props => {
   const [totalData, setTotalData] = useState({});

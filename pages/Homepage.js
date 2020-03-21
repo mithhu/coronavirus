@@ -16,6 +16,8 @@ const Homepage = () => {
     }
     fetchData();
   }, []);
+
+  //filter last 7 days data for the chart
   let newData = [];
   const dataCollector = () => {
     let count = 1;

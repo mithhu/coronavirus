@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./CountryData.scss";
+import "./ChartCardList.scss";
 
 export const CountryData = props => {
   const [countryData, setCountryData] = useState({});
