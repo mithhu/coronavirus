@@ -26,7 +26,10 @@ export default class extends Document {
             name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
           />
-
+          <link
+            href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&display=swap"
+            rel="stylesheet"
+          />
           <link
             rel="apple-touch-icon"
             sizes="57x57"
