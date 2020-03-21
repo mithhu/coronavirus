@@ -6,8 +6,8 @@ export const CountryData = props => {
   const [globalData, setGlobalData] = useState([]);
   const [selectCountry, setSelectCountry] = useState(
     typeof window !== undefined
-      ? localStorage.getItem("selectCountry")
-        ? localStorage.getItem("selectCountry")
+      ? window.localStorage.getItem("selectCountry")
+        ? window.localStorage.getItem("selectCountry")
         : ""
       : ""
   );
@@ -52,7 +52,7 @@ export const CountryData = props => {
           value={selectCountry}
           onChange={e => {
             typeof window !== undefined
-              ? localStorage.setItem("selectCountry", e.target.value)
+              ? window.localStorage.setItem("selectCountry", e.target.value)
               : "";
             setSelectCountry(e.target.value);
           }}
