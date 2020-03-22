@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { CardList } from "../components/CardList";
 import { CountryData } from "../components/CountryData";
 import { Chart } from "../components/Chart";
+import { GlobalData } from "../components/GlobalData";
 
 const Homepage = () => {
   const [dailyData, setDailyData] = useState([]);
@@ -34,7 +34,7 @@ const Homepage = () => {
       >
         Covid-19
       </h1>
-      <CardList
+      <GlobalData
         dailyData={
           dailyData.length > 0 && dailyData[dailyData.length - 1].deltaConfirmed
         }
