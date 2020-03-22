@@ -29,11 +29,7 @@ const Homepage = () => {
 
   return (
     <div>
-      <h1
-        style={{ textAlign: "center", marginTop: "5px", marginBottom: "5px" }}
-      >
-        Covid-19
-      </h1>
+      <h1 className="headline">Covid-19</h1>
       <GlobalData
         dailyData={
           dailyData.length > 0 && dailyData[dailyData.length - 1].deltaConfirmed
