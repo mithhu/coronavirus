@@ -12,6 +12,7 @@ export const CountryData = props => {
       const response = await fetch(
         "https://covid19.mathdro.id/api/countries"
       ).then(res => res.json());
+      console.log(response);
       setGlobalData(response);
     }
     fetchGlobalData();
@@ -65,10 +66,10 @@ export const CountryData = props => {
         >
           <option value="">Select your country</option>
           {globalData.countries
-            ? Object.keys(globalData.countries).map(country => {
+            ? globalData.countries.map(country => {
                 return (
-                  <option key={country} value={globalData.countries[country]}>
-                    {country}
+                  <option key={country.iso2} value={country.iso2}>
+                    {country.name}
                   </option>
                 );
               })
