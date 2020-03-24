@@ -27,10 +27,10 @@ export const Chart = props => {
             <stop offset="5%" stopColor="#FF0000" stopOpacity={1} />
             <stop offset="95%" stopColor="#FF0000" stopOpacity={0.2} />
           </linearGradient>
-          <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+          {/* <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
             <stop offset="5%" stopColor="#0CE30C" stopOpacity={1} />
             <stop offset="95%" stopColor="#0CE30C" stopOpacity={0.2} />
-          </linearGradient>
+          </linearGradient> */}
         </defs>
         <XAxis dataKey="reportDateString" />
         <YAxis />
@@ -43,12 +43,12 @@ export const Chart = props => {
           dataKey="totalConfirmed"
           stroke="#8884dFF00008"
         />
-        <Line
+        {/* <Line
           name="Recovered"
           type="monotone"
           dataKey="totalRecovered"
           stroke="#0CE30C"
-        />
+        /> */}
         <Area
           type="monotone"
           dataKey="totalConfirmed"
@@ -56,13 +56,13 @@ export const Chart = props => {
           fillOpacity={1}
           fill="url(#colorUv)"
         />
-        <Area
+        {/* <Area
           type="monotone"
           dataKey="totalRecovered"
           stroke="#0CE30C"
           fillOpacity={1}
           fill="url(#colorPv)"
-        />
+        /> */}
       </AreaChart>
     </div>
   );

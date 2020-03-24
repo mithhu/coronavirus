@@ -35,13 +35,21 @@ export const GlobalData = props => {
         <p>Total Death</p>
         <p>{totalData.deaths ? totalData.deaths.value : undefined}</p>
       </article>
-      <article className="article">
-        <p>Confirmed Today</p>
-        <p>{props.dailyData}</p>
-      </article>
+      {props.dailyData ? (
+        <article className="article">
+          <p>Confirmed Today</p>
+          <p>{props.dailyData}</p>
+        </article>
+      ) : (
+        undefined
+      )}
       <article className="article">
         <p>Highest Death in</p>
-        <p>{maxDeath.length > 0 ? `${maxDeath[0].countryRegion} (${maxDeath[0].deaths})` : undefined}</p>
+        <p>
+          {maxDeath.length > 0
+            ? `${maxDeath[0].countryRegion} (${maxDeath[0].deaths})`
+            : undefined}
+        </p>
       </article>
     </div>
   );
