@@ -32,7 +32,7 @@ export const Chart = props => {
             <stop offset="95%" stopColor="#0CE30C" stopOpacity={0.2} />
           </linearGradient> */}
         </defs>
-        <XAxis dataKey="reportDateString" />
+        <XAxis dataKey="reportDate" />
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
